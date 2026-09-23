@@ -292,3 +292,18 @@ main > section:nth-child(even) { background: var(--section-b); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+
+.photo-container {
+  display: flex;
+  flex-direction: column; /* Stacks the image and text vertically */
+  align-items: center;    /* Centers the image and text horizontally */
+  text-align: center;     /* Centers the text inside the paragraph */
+  margin: 20px auto;      /* Adds spacing above/below and centers the block */
+}
+
+.photo-caption {
+  margin-top: 8px;        /* Spacing between the image and the text */
+  font-size: 0.9em;       /* Makes the caption slightly smaller */
+  color: #555;            /* Softens the text color */
+}
