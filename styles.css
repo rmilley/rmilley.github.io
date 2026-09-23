@@ -53,6 +53,7 @@ p { margin: 0 0 1.1rem; }
 
 .photo {
   width: 50%;
+  border: 3px solid black;
 }
 
 a { color: var(--orange-dark); text-underline-offset: 3px; }
@@ -219,39 +220,7 @@ main > section:nth-child(even) { background: var(--section-b); }
 .signup-fallback { margin-top: 1rem; color: var(--ink-soft); font-style: italic; }
 
 /* ---------- games listing (home) ---------- */
-.game-list {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 1.75rem; margin: 2rem auto 0;
-}
-.game-card {
-  display: flex; flex-direction: column;
-  flex: 0 1 300px; max-width: 320px;
-  border: 1px solid var(--ink);
-  background: #fff;
-  text-decoration: none;
-  color: var(--ink);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-.game-card:hover { box-shadow: 9px 9px 0 var(--orange); transform: translate(-3px, -3px); }
-.game-card__art {
-  display: block;
-  width: 100%; height: auto;          /* show the whole card, no cropping */
-  border-bottom: 1px solid var(--ink);
-}
-.game-card__body {
-  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
-  padding: 1.4rem 1.5rem; text-align: center;
-}
-.game-card__title {
-  font-family: Avenir;
-  font-weight: 700; font-size: 1.35rem; line-height: 1.18;
-}
-.game-card__more {
-  font-family: Avenir Medium;
-  letter-spacing: 0.1em;
-  font-size: 0.8rem;
-   /* color: var(--orange-dark); */
-}
+
 
 /* ---------- game history block (Jig page) ---------- */
 .game-history {
