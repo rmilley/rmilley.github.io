@@ -7,102 +7,75 @@
   <meta name="description" content="Fogberry Games: a self-publishing board game company in Corner Brook, Newfoundland. Home of Jig, a competitive card game of memory, deduction, and revenge.">
   <meta name="theme-color" content="#e8551f">
 
+  <!-- Preview shown when the link is shared on social media -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Fogberry Games — Self-publishing board game company">
   <meta property="og:description" content="Fogberry Games: a self-publishing board game company in Corner Brook, Newfoundland. Home of Jig, a competitive card game of memory, deduction, and revenge.">
-  <meta property="og:image" content="assets/fogberry_logo_final.png">
+  <meta property="og:image" content="https://www.fogberrygames.com/assets/fogberry_logo_final.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
 
-  <header id="header" class="masthead">
-    <a class="masthead__brand" href="#home" aria-label="Fogberry Games home">
-      <img src="assets/fogberry_logo_final.png" width="300" height="150" alt="Fogberry Games logo">
-    </a>
+  <header class="site-header">
+    <a href="#top"><img src="assets/fogberry_logo_final.png" width="928" height="224" alt="Fogberry Games logo"></a>
   </header>
 
-  <nav class="nav" aria-label="Primary">
-    <div class="wrap nav__inner">
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">Menu</button>
-      <div class="nav__links" id="nav-links">
-        <a href="#header">Home</a>
-            <a href="#games">Games</a>
-            <a href="#about">About</a>
-            <a href="#email">Email list</a>
-            <a href="#contact">Contact</a>
-      </div>
-    </div>
+  <nav class="site-nav">
+    <a href="#top">Home</a>
+    <a href="#games">Games</a>
+    <a href="#about">About</a>
+    <a href="#email">Email list</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <main id="content">
+  <main>
 
-    <!-- <section id="home" class="hero">
-      <div class="wrap narrow center">
-        <h1>Welcome!</h1>
-      </div>
-    </section> -->
-
+    <!-- ===== GAMES ===== -->
     <section id="games" class="section">
-      <div class="wrap narrow center">
+      <div class="column">
         <h2>Games</h2>
-        <p id="game-announcement">Our first game, Jig, is coming in early 2027! Click below for more info.</p>
-          <a class="" href="jig/" aria-label="Introducing our first card game: Jig!">
-            <img class="photo" src="assets/jig_cover_web2.png" alt="The word “Jig” is illustrated with a fish hook for the “J,” rope coming from the hook forming the dot of the “i” and looping around the word to a handline reel at the base of the “J”, on a foggy blue background." loading="lazy"/>
-          </a>
+        <p class="centered">Our first game, Jig, is coming in early 2027! Click below for more info.</p>
+        <a href="jig/">
+          <img class="photo" src="assets/jig_cover_web2.png" width="840" height="993" loading="lazy"
+               alt="The word “Jig” is illustrated with a fish hook for the “J,” rope coming from the hook forming the dot of the “i” and looping around the word to a handline reel at the base of the “J”, on a foggy blue background.">
+        </a>
       </div>
     </section>
 
-    <section id="about" class="section section--tint">
-      <div class="wrap narrow center">
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <div class="column">
         <h2>About us</h2>
-        <p>Fogberry Games is a self-publishing board game company based in western Newfoundland, Canada. Our name was inspired by the bakeapple (also known as cloudberry), a cherished amber-orange berry which thrives in the foggy bogs of Newfoundland and Labrador.</p> 
-          <img class="photo" src="assets/berry.jpeg" alt="A photo of a bakeapple growing in a bog." loading="lazy">
+        <p>Fogberry Games is a self-publishing board game company based in western Newfoundland, Canada. Our name was inspired by the bakeapple (also known as cloudberry), a cherished amber-orange berry which thrives in the foggy bogs of Newfoundland and Labrador.</p>
+        <img class="photo" src="assets/berry.jpeg" width="2248" height="2636" loading="lazy"
+             alt="A photo of a bakeapple growing in a bog.">
       </div>
     </section>
 
-    
-      <section id="email" class="section section--tint">
-        <div class="wrap narrow center">
-          <h2>Join our email list!</h2>
-          <p>Sign up here to get the latest updates for Jig and future games, including the Kickstarter launch date and information for preordering (expected early 2027).</p>
-          
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeKK0-x2KHfc2acH-JHc9EYfaMG3qQW5tEtSWrez0tTPb5nuQ/viewform?embedded=true" width="640" height="586" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <!-- ===== EMAIL LIST ===== -->
+    <section id="email" class="section">
+      <div class="column">
+        <h2>Join our email list!</h2>
+        <p>Sign up here to get the latest updates for Jig and future games, including the Kickstarter launch date and information for preordering (expected early 2027).</p>
+        <iframe class="signup-form" title="Email list sign-up form"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeKK0-x2KHfc2acH-JHc9EYfaMG3qQW5tEtSWrez0tTPb5nuQ/viewform?embedded=true">Loading…</iframe>
+      </div>
+    </section>
 
-        </div>
-      </section>
-
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="section">
-      <div class="wrap narrow center">
+      <div class="column">
         <h2>Contact us</h2>
         <p>If you have questions, or if you would like to request a reviewer copy of Jig, email us at <a href="mailto:info@fogberrygames.com">info@fogberrygames.com</a>.</p>
-        <p class="copyright">&copy; 2026 Fogberry Games &middot; Corner Brook, Newfoundland</p>
+        <p class="centered copyright">&copy; 2026 Fogberry Games &middot; Corner Brook, Newfoundland</p>
       </div>
     </section>
-  </main>
 
-  <script>
-    // Mobile nav toggle + close on link tap.
-    var toggle = document.querySelector('.nav__toggle');
-    var links = document.getElementById('nav-links');
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
+  </main>
 </body>
 </html>

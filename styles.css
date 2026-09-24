@@ -1,278 +1,211 @@
 /* ===========================================================
    Fogberry Games — site styles
-   Classic editorial look: white paper, hairline rules, serif
-   typography, hard corners. Whimsy comes from the cloudberry-
-   orange accent and the hand-drawn Jig art.
+   Shared by index.html and jig/index.html.
+
+   Sections of this file:
+     1. Colours & sizes   (change these first)
+     2. Base text
+     3. Page layout
+     4. Header & navigation
+     5. Content blocks     (photos, badge, captions, etc.)
+     6. Small screens      (phones)
    =========================================================== */
+
+
+/* ---------- 1. Colours & sizes ---------- */
 :root {
-  --orange: #e8551f;
-  --orange-dark: #c5410f;
-  --ink: #161210;
-  --ink-soft: #443c37;
-  --rule: #e3d6cb;          /* hairline rule */
-  --rule-strong: #1b1714;   /* heavy rule */
-  --paper: #ffffff;
-  --blue-fog: #a9bcc6;      /* foggy gray-blue (masthead) */
-  --section-a: #fcefe6;     /* light orange shade A */
-  --section-b: #f8ddca;     /* light orange shade B (close to A) */
-  --maxw: 1080px;
+  --orange-dark: #c5410f;   /* links, badge rules */
+  --orange:      #e8551f;
+  --ink:         #161210;   /* main text */
+  --ink-soft:    #555;      /* captions, copyright */
+  --rule:        #e3d6cb;   /* thin divider lines */
+  --rule-strong: #1b1714;   /* heavy lines around the nav */
+  --paper:       #ffffff;
+  --fog-blue:    #a9bcc6;   /* header background */
+  --section-a:   #fcefe6;   /* sections alternate between these */
+  --section-b:   #f8ddca;   /*   two light orange shades */
+
+  --font: Avenir, "Avenir Next", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --content-width: 720px;   /* max width of the text column */
+  --photo-width:   340px;   /* max width of photos */
 }
 
+
+/* ---------- 2. Base text ---------- */
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;   /* keeps headings clear of the sticky nav */
+}
 
 body {
   margin: 0;
-  font-family: Avenir Medium; */
-  font-size: 1.18rem;
+  font-family: var(--font);
+  font-weight: 500;
+  line-height: 1.7;
   color: var(--ink);
   background: var(--paper);
-  line-height: 1.7;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3 {
-  /* font-family: "Playfair Display", Georgia, serif; */ */
-  font-family: Charter; */
-  font-weight: 700;
-  line-height: 1.12;
-  color: var(--ink);
   margin: 0 0 0.4em;
-  letter-spacing: 0;
+  line-height: 1.12;
 }
-h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; }
-h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); }
-h3 { font-size: clamp(1.25rem, 2.6vw, 1.6rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 2.7rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.6rem); }
 
 p { margin: 0 0 1.1rem; }
-#game-announcement {
-  text-align: center;
-}
 
-.photo {
-  width: 50%;
-  border: 3px solid black;
-}
- 
 a { color: var(--orange-dark); text-underline-offset: 3px; }
 a:hover { color: var(--ink); }
 
-.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
-.narrow { max-width: 720px; }
-.center { text-align: center; }
+img { max-width: 100%; height: auto; }
 
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-}
-.skip-link {
-  position: absolute; left: -999px; top: 0; z-index: 100;
-  background: var(--ink); color: #fff; padding: 0.6rem 1rem;
-}
-.skip-link:focus { left: 0; }
 
-/* ---------- buttons (square, editorial) ---------- */
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background: var(--ink);
-  color: #fff;
-  font-family: Avenir;
-  font-size: 1.05rem;
-  text-decoration: none;
-  padding: 0.65rem 1.6rem;
-  border: 1px solid var(--ink);
-  transition: background 0.15s ease, color 0.15s ease;
-}
-.btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+/* ---------- 3. Page layout ---------- */
 
-/* ---------- masthead ---------- */
-.masthead {
+/* Each block of content is a <section class="section">. */
+.section {
+  padding: clamp(2.5rem, 7vw, 4.5rem) 1.25rem;
   text-align: center;
-  padding: 1.8rem 1.5rem 1.6rem;
-  background: var(--blue-fog);
 }
-.masthead__brand { display: inline-block; }
-.masthead__brand img { height: 104px; width: auto; display: block; margin: 0 auto; }
 
-/* ---------- nav (sticky bar under masthead) ---------- */
-.nav {
-  position: sticky; top: 0; z-index: 50;
+/* Sections alternate between two shades of orange automatically. */
+main > .section:nth-child(odd)  { background: var(--section-a); }
+main > .section:nth-child(even) { background: var(--section-b); }
+
+/* The centred text column inside each section. */
+.column {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* Paragraphs are justified; short centred lines use class="centered". */
+.column p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.column p.centered { text-align: center; }
+
+
+/* ---------- 4. Header & navigation ---------- */
+.site-header {
+  padding: 1.8rem 1.25rem 1.6rem;
+  background: var(--fog-blue);
+  text-align: center;
+}
+.site-header img {
+  display: block;
+  margin: 0 auto;
+  width: 431px;       /* logo is ~104px tall at this width */
+  max-width: 100%;
+}
+
+/* Stays stuck to the top of the screen while scrolling. */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background: var(--paper);
   border-top: 3px double var(--rule-strong);
   border-bottom: 3px double var(--rule-strong);
 }
-.nav__inner { display: flex; justify-content: center; align-items: center; }
-.nav__links { display: flex; justify-content: center; flex-wrap: wrap; }
-.nav__links a {
-  /* font-family: "Newsreader", serif; */
-  font-family: Avenir; */
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
+.site-nav a {
+  padding: 0.85rem 1.15rem;
   font-size: 0.9rem;
+  letter-spacing: 0.13em;
   color: var(--ink);
   text-decoration: none;
-  padding: 0.85rem 1.15rem;
   border-left: 1px solid var(--rule);
 }
-.nav__links a:first-child { border-left: 0; }
-.nav__links a:hover { color: var(--orange-dark); background: var(--paper-warm); }
+.site-nav a:first-child { border-left: 0; }
+.site-nav a:hover { color: var(--orange-dark); }
 
-.nav__toggle {
-  display: none;
-  background: none; border: 0; cursor: pointer;
-  font-family: Avenir; text-transform: uppercase;
-  letter-spacing: 0.13em; font-size: 0.85rem; color: var(--ink);
-  padding: 0.85rem 1rem;
-}
 
-/* ---------- hero ---------- */
-.hero {
-  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
-  text-align: center;
-}
-.hero h1 { margin-bottom: 0.6rem; }
-.hero .lede {
-  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
-  color: var(--ink-soft);
-  max-width: 38ch;
+/* ---------- 5. Content blocks ---------- */
+
+/* Photos: black frame, centred. */
+.photo {
+  display: block;
+  width: 100%;
+  max-width: var(--photo-width);
   margin: 0 auto;
+  border: 3px solid black;
 }
-.hero .lede p { margin-bottom: 0; }
 
-/* ---------- generic sections ---------- */
-.section { padding: clamp(2.75rem, 6vw, 4.5rem) 0; }
+/* Small grey line under a photo. */
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+  color: var(--ink-soft);
+}
 
-/* Body text fully justified throughout the sections. */
-.section p { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
-
-/* Alternate every section between two close shades of orange. */
-main > section:nth-child(odd) { background: var(--section-a); }
-main > section:nth-child(even) { background: var(--section-b); }
-
-/* ---------- games ---------- */
+/* "Coming early 2027!" label with orange lines above & below. */
 .badge {
   display: inline-block;
-  margin-top: 0.6rem;
-  font-family: Avenir;
-  font-weight: 500;
+  margin: 0.6rem 0 1.75rem;
+  padding: 0.35rem 0;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--ink);
   border-top: 2px solid var(--orange);
   border-bottom: 2px solid var(--orange);
-  padding: 0.35rem 0;
 }
-.games__art { margin: clamp(1.75rem, 4vw, 2.5rem) auto 0; max-width: 340px; text-align: center; }
-.games__art img {
+
+/* A block separated from what's above by a thin line. */
+.divided {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+.divided + .divided { margin-top: 0; }
+
+/* Google Form sign-up box. */
+.signup-form {
+  display: block;
   width: 100%;
-  max-width: 320px;
-  height: auto;
-  border: 1px solid var(--rule-strong);
-  padding: 10px;
-  background: #fff;
+  max-width: 640px;
+  height: 586px;
+  margin: 1.5rem auto 0;
+  border: 0;
 }
-.games__art figcaption {
-  margin-top: 0.7rem;
-  color: var(--ink-soft);
-  font-style: italic;
-  font-size: 0.95rem;
-}
-.history {
-  margin-top: clamp(2.25rem, 5vw, 3.5rem);
-  padding-top: clamp(1.75rem, 4vw, 2.5rem);
-  border-top: 1px solid var(--rule);
-}
-.history h3 { margin-bottom: 0.6rem; }
 
-/* ---------- about (newspaper columns) ---------- */
-.cards {
-  margin-top: 1.75rem;
-  border-top: 1px solid var(--rule);
-}
-.card { padding: 1.75rem 0; border-top: 1px solid var(--rule); }
-.card:first-child { border-top: 0; }
-.card h3 { margin-top: 0; }
-.card p:last-child { margin-bottom: 0; }
-
-/* ---------- email signup ---------- */
-.signup {
-  display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
-  margin-top: 1.5rem;
-}
-.signup input {
-  flex: 1 1 280px; max-width: 360px;
-  padding: 0.75rem 1rem; font-size: 1.05rem; font-family: Avenir Medium;
-  border: 1px solid var(--rule-strong); background: #fff;
-}
-.signup input:focus { outline: 2px solid var(--orange); outline-offset: -1px; }
-.signup button {
-  border: 1px solid var(--ink); border-left: 0; cursor: pointer;
-  background: var(--ink); color: #fff;
-  font-family: Avenir Medium; font-size: 1.05rem;
-  padding: 0.75rem 1.6rem;
-  transition: background 0.15s ease;
-}
-.signup button:hover { background: var(--orange); border-color: var(--orange); }
-.signup-fallback { margin-top: 1rem; color: var(--ink-soft); font-style: italic; }
-
-/* ---------- games listing (home) ---------- */
-
-
-/* ---------- game history block (Jig page) ---------- */
-.game-history {
-  margin-top: clamp(2.25rem, 5vw, 3.5rem);
-  padding-top: clamp(1.75rem, 4vw, 2.5rem);
-  border-top: 1px solid var(--rule);
-}
-.game-history h2 { margin-bottom: 0.6rem; }
-
-/* ---------- copyright (bottom of contact) ---------- */
-.section .copyright {
-  text-align: center;
-  margin: 2.75rem 0 0;
-  color: var(--ink-soft);
+.copyright {
+  margin-top: 2.75rem;
   font-size: 0.85rem;
+  color: var(--ink-soft);
 }
 
-/* ---------- responsive ---------- */
-@media (max-width: 760px) {
-  body { font-size: 1.1rem; }
-  .nav__inner { justify-content: space-between; }
-  .nav__toggle { display: block; }
-  .nav__links {
-    display: none; position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column;
-    background: var(--paper); border-bottom: 1px solid var(--rule-strong);
+
+/* ---------- 6. Small screens (phones) ---------- */
+@media (max-width: 600px) {
+  .site-header { padding: 1.25rem 1rem; }
+
+  .site-nav a {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
   }
-  .nav__links.is-open { display: flex; }
-  .nav__links a { border-left: 0; border-top: 1px solid var(--rule); text-align: center; }
-  .games__art img { max-width: 260px; }
-  .cards { grid-template-columns: 1fr; }
-  .card { border-left: 0; border-top: 1px solid var(--rule); }
-  .card:first-child { border-top: 0; }
-  .signup input, .signup button { flex: 1 1 100%; max-width: none; }
-  .signup button { border-left: 1px solid var(--ink); border-top: 0; }
+
+  /* Justified text leaves big gaps on narrow screens, so left-align it. */
+  .column p { text-align: left; }
+
+  .signup-form { height: 720px; }
+}
+
+/* Very small phones: squeeze the nav so it fits on one line. */
+@media (max-width: 360px) {
+  .site-nav a { padding: 0.7rem 0.4rem; letter-spacing: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-}
-
-
-.photo-container {
-  display: flex;
-  flex-direction: column; /* Stacks the image and text vertically */
-  align-items: center;    /* Centers the image and text horizontally */
-  text-align: center;     /* Centers the text inside the paragraph */
-  margin: 20px auto;      /* Adds spacing above/below and centers the block */
-}
-
-.photo-caption {
-  margin-top: 8px;        /* Spacing between the image and the text */
-  font-size: 0.9em;       /* Makes the caption slightly smaller */
-  color: #555;            /* Softens the text color */
 }
