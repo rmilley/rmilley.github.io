@@ -141,6 +141,27 @@ main > .section:nth-child(even) { background: var(--section-b); }
   border: 3px solid black;
 }
 
+/* cardbacks: black frame, centred. */
+.cardback {
+  display: block;
+  width: 25%;
+  max-width: var(--photo-width);
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+/* cardbacks: black frame, centred. */
+.doryback {
+  display: block;
+  width: 33%;
+  max-width: var(--photo-width);
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+
+
+
 /* Small grey line under a photo. */
 .caption {
   margin-top: 0.5rem;
