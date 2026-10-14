@@ -130,7 +130,7 @@ main > .section:nth-child(even) { background: var(--section-b); }
 .site-nav a:hover { color: var(--orange-dark); }
 
 
-/* ---------- 5. Content blocks ---------- */
+ /* ---------- 5. Content blocks ---------- */
 
 /* Photos: black frame, centred. */
 .photo {
