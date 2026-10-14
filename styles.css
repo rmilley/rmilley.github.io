@@ -16,6 +16,7 @@
 :root {
   --orange-dark: #c5410f;   /* links, badge rules */
   --orange:      #e8551f;
+  --black:       #000000;
   --ink:         #161210;   /* main text */
   --ink-soft:    #555;      /* captions, copyright */
   --rule:        #e3d6cb;   /* thin divider lines */
@@ -158,6 +159,13 @@ main > .section:nth-child(even) { background: var(--section-b); }
   margin: 0 auto;
   border: 2px solid black;
 }
+/* lgo*/
+.logo {
+  display: block;
+  width: 30%;
+  max-width: var(--photo-width);
+  margin: 0 auto; 
+}
 
 
 
@@ -177,8 +185,8 @@ main > .section:nth-child(even) { background: var(--section-b); }
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  border-top: 2px solid var(--orange);
-  border-bottom: 2px solid var(--orange);
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
 }
 
 /* A block separated from what's above by a thin line. */
