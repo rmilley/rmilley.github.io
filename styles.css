@@ -166,7 +166,35 @@ main > .section:nth-child(even) { background: var(--section-b); }
   max-width: var(--photo-width);
   margin: 0 auto; 
 }
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* two equal columns */
+  gap: 12px;
+  width: fit-content;                     /* row is only as wide as the buttons */
+  margin: 1rem auto;                      /* centres the row */
+}
 
+.btn {
+  display: block;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  background-color: rgb(170, 188, 198);
+  color: #0c0c0c;
+  border: 1px solid #0c0c0c;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;                     /* text centred inside each button */
+  text-decoration: none;
+}
+
+/* On narrow screens, stack the buttons at the same width */
+@media (max-width: 540px) {
+  .button-row {
+    grid-template-columns: 1fr;
+    width: min(100%, 18rem);
+  }
+}
 .site-header img.logo_rules, 
 img.logo_rules {
   display: block !important;
