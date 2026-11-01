@@ -129,6 +129,10 @@ main > .section:nth-child(even) { background: var(--section-b); }
 }
 .site-nav a:first-child { border-left: 0; }
 .site-nav a:hover { color: var(--orange-dark); }
+.site-nav a[aria-current="page"] {
+  color: var(--orange-dark);
+  box-shadow: inset 0 -3px 0 var(--orange-dark);   /* underline for the current page */
+}
 
 
  /* ---------- 5. Content blocks ---------- */
@@ -178,15 +182,30 @@ main > .section:nth-child(even) { background: var(--section-b); }
   display: block;
   box-sizing: border-box;
   padding: 12px 24px;
-  background-color: rgb(170, 188, 198);
+  background-color: #60abc5;
   color: #0c0c0c;
-  border: 1px solid #0c0c0c;
+  border: 2px solid #0c0c0c;
   border-radius: 4px;
   font-family: sans-serif;
   font-weight: bold;
   text-align: center;                     /* text centred inside each button */
   text-decoration: none;
 }
+.btn1 {
+  display: inline-block;                  /* FIX: Shrinks button to the width of the text */
+  margin-top: 2px;                       /* FIX: Adds space between the image and the button */
+  box-sizing: border-box;
+  padding: 12px 24px;
+  background-color: #60abc5;
+  color: #0c0c0c;
+  border: 2px solid #0c0c0c;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;                     /* text centred inside each button */
+  text-decoration: none;
+}
+
 
 /* On narrow screens, stack the buttons at the same width */
 @media (max-width: 540px) {
@@ -205,6 +224,18 @@ img.logo_rules {
 }
 
 
+
+/* "Players: 4, 6, or 8 | Ages: 12+ | Time: 15-30 mins" line. */
+.column p.game-meta {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.nowrap { white-space: nowrap; }
+@media (max-width: 480px) {
+  .game-meta .sep { display: none; }
+  .game-meta .nowrap { display: block; }   /* stack the three items on phones */
+}
 
 /* Small grey line under a photo. */
 .caption {

@@ -55,8 +55,10 @@
         /* ---------- Content styles ---------- */
         h2 { font-size: 1.8rem; border-bottom: 2px solid #0b0b0b; padding-bottom: 8px; margin-top: 50px; color: #222; line-height: 1.25; }
         section:first-of-type h2 { margin-top: 0; }
-        .pdf-link { float: right; display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 0 16px; font-size: 0.95rem; font-weight: 600; line-height: 1.3; color: #000203; text-decoration: none; }
-        .pdf-link:hover { text-decoration: underline; color: #004499; }
+        .content-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 18px; font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
+        .back-link, .pdf-link { display: inline-flex; align-items: center; gap: 6px; color: #000203; text-decoration: none; }
+        .back-link:hover, .pdf-link:hover { text-decoration: underline; color: #004499; }
+        .back-link:focus-visible { outline: 2px solid #004499; outline-offset: 2px; border-radius: 2px; }
         .pdf-link:focus-visible { outline: 2px solid #004499; outline-offset: 2px; border-radius: 2px; }
         .pdf-link svg { width: 18px; height: 18px; flex-shrink: 0; }
         h3 { font-size: 1.3rem; margin-top: 35px; color: #333; line-height: 1.3; }
@@ -155,7 +157,7 @@
             .sidebar { display: block; position: static; width: auto; height: auto; padding: 0; background: none; border: 0; box-shadow: none; }
             .sticky-bar { position: static; display: block; height: auto; padding: 0; background: none; border: 0; box-shadow: none; }
             .toc-toggle { display: none !important; }
-            .pdf-link { display: none; }
+            .content-top { display: none; }
             .brand-logo { max-width: none; text-align: center; }
             .brand-logo { position: static; display: block; height: auto; padding: 0; background: none; border: 0; box-shadow: none; }
             .brand-logo img { height: auto; max-height: 30mm; }
@@ -214,11 +216,14 @@
 
     <!-- Main Content Document -->
     <main class="content">
-        <section id="getting-started">
+        <div class="content-top">
+            <a class="back-link" href="./">&larr; Back to Jig</a>
             <a class="pdf-link" href="jig_rules.pdf" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
                 Download PDF
             </a>
+        </div>
+        <section id="getting-started">
             <h2>Getting started</h2>
             <h3 id="overview">Overview</h3>
             <p>Jig is a competitive game of memory, deduction, and revenge! Fish for cards from the opposing team, paying attention to what other players ask for and what they get. When you think your team has all the cards of one colour, you can "land" them &mdash; but you must know exactly who has which card, or else the other team steals the point!</p>
