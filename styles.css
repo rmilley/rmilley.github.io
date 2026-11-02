@@ -22,7 +22,7 @@
   --rule:        #e3d6cb;   /* thin divider lines */
   --rule-strong: #1b1714;   /* heavy lines around the nav */
   --paper:       #ffffff;
-  --fog-blue:    #a9bcc6;   /* header background */
+  --fog-blue:    #AECEDA;   /* header background */
   --section-a:   #fcefe6;   /* sections alternate between these */
   --section-b:   #f8ddca;   /*   two light orange shades */
 
@@ -182,7 +182,7 @@ main > .section:nth-child(even) { background: var(--section-b); }
   display: block;
   box-sizing: border-box;
   padding: 12px 24px;
-  background-color: #60abc5;
+  background-color: #fe9a05;
   color: #0c0c0c;
   border: 2px solid #0c0c0c;
   border-radius: 4px;
@@ -194,9 +194,11 @@ main > .section:nth-child(even) { background: var(--section-b); }
 .btn1 {
   display: inline-block;                  /* FIX: Shrinks button to the width of the text */
   margin-top: 2px;                       /* FIX: Adds space between the image and the button */
+    margin-bottom: 20px;                       /* FIX: Adds space between the image and the button */
+
   box-sizing: border-box;
   padding: 12px 24px;
-  background-color: #60abc5;
+  background-color: #f2a229;
   color: #0c0c0c;
   border: 2px solid #0c0c0c;
   border-radius: 4px;
