@@ -37,8 +37,26 @@
         .subtitle { flex-shrink: 0; font-size: 0.8rem; line-height: 1.4; color: #3a3a3a; text-align: center; margin: 12px 0 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,0,0,0.2); }
 
         .toc { flex: none; }
-        /* On short desktop windows, let the sidebar scroll with the page instead of getting cut off */
-        @media (min-width: 861px) and (max-height: 740px) { .sidebar { position: static; } }
+        /* The sidebar always stays pinned. On short desktop windows it tightens up
+           so everything still fits on screen. */
+        @media (min-width: 861px) {
+            .sidebar { max-height: calc(100vh - 80px); overflow-y: auto; scrollbar-width: none; }   /* safety net only; hidden scrollbar */
+            .sidebar::-webkit-scrollbar { display: none; }
+        }
+        @media (min-width: 861px) and (max-height: 760px) {
+            .sidebar { top: 20px; max-height: calc(100vh - 40px); padding: 14px 16px; }
+            .brand-logo img { max-height: 15vh; }
+            .game-meta { margin: 6px 0 8px; padding-bottom: 8px; font-size: 0.85rem; line-height: 1.35; }
+            .toc-item-h2 { margin-top: 8px; margin-bottom: 3px; }
+            .toc-item-h3 { margin-bottom: 2px; font-size: 0.85rem; }
+        }
+        @media (min-width: 861px) and (max-height: 600px) {
+            .brand-logo img { max-height: 11vh; }
+            .meta-item, .meta-sep { display: inline; }   /* run the three items together to save height */
+            .meta-sep { margin: 0 0.3em; }
+            .toc-item-h2 { margin-top: 5px; margin-bottom: 1px; }
+            .toc-item-h3 { margin-bottom: 0; }
+        }
         .toc-list { list-style: none; padding: 0; margin: 0; }
         .toc-item-h2 { font-weight: bold; margin-top: 12px; margin-bottom: 6px; }
         .toc-item-h2:first-child { margin-top: 0; }
