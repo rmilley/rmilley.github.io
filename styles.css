@@ -182,25 +182,27 @@ main > .section:nth-child(even) { background: var(--section-b); }
   display: block;
   box-sizing: border-box;
   padding: 12px 24px;
-  background-color: #fe9a05;
-  color: #0c0c0c;
-  border: 2px solid #0c0c0c;
+  background-color: rgb(254, 155, 7, 0.716);
+  color: #000000;
   border-radius: 4px;
   font-family: sans-serif;
   font-weight: bold;
   text-align: center;                     /* text centred inside each button */
   text-decoration: none;
+}
+
+.btn:hover {
+  background-color: rgb(254, 155, 7, 0.899);
+  color: #000000;
 }
 .btn1 {
   display: inline-block;                  /* FIX: Shrinks button to the width of the text */
   margin-top: 2px;                       /* FIX: Adds space between the image and the button */
     margin-bottom: 20px;                       /* FIX: Adds space between the image and the button */
-
   box-sizing: border-box;
   padding: 12px 24px;
-  background-color: #f2a229;
-  color: #0c0c0c;
-  border: 2px solid #0c0c0c;
+  background-color: rgb(254, 155, 7, 0.716);
+  color: #000000;
   border-radius: 4px;
   font-family: sans-serif;
   font-weight: bold;
@@ -208,7 +210,10 @@ main > .section:nth-child(even) { background: var(--section-b); }
   text-decoration: none;
 }
 
-
+.btn1:hover {
+  background-color: rgb(254, 155, 7, 0.899);
+  color: #000000;
+}
 /* On narrow screens, stack the buttons at the same width */
 @media (max-width: 540px) {
   .button-row {
