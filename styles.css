@@ -181,7 +181,7 @@ main > .section:nth-child(even) { background: var(--section-b); }
 .btn {
   display: block;
   box-sizing: border-box;
-  padding: 12px 24px;
+  padding: 12px 20px;
   background-color: rgb(254, 155, 7, 0.716);
   color: #000000;
   border-radius: 4px;
